@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content%}
+{% include 'titlebar.html' %}
+<div class="container">
+	<br><br>
+	<div class="alert alert-success">
+	Your email id for transaction is: {{ email_id }}
+	</div>
+	<div class="alert alert-info">
+	Your Balance is: {{ balance }}
+	</div>
+<br>
+</div>
+{% endblock %}

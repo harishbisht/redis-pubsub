@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% include 'titlebar.html' %}
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Transaction Type</th>
+        <th>Transaction Id</th>
+        <th>From Email</th>
+        <th>To Email</th>
+        <th>Transaction Amount</th>
+        <th>Transaction Date</th>
+        <th>Success</th>
+      </tr>
+    </thead>
+    <tbody>
+     	{% for t in  transactions %}
+      {% if t.7 and t.6 %}
+      <tr class="success">
+      {% else %}
+       {% if t.7 %}
+		  <tr class="info">
+       {% else %}
+		  <tr class="danger">
+	   {% endif %}
+      {% endif %}
+        <td>{{ t.0 }}</td>
+        <td>{{ t.1 }}</td>
+        <td>{{ t.2 }}</td>
+        <td>{{ t.3 }}</td>
+        <td>{{ t.4 }}</td>
+        <td>{{ t.5 }}</td>
+			{% if t.7 %}
+			<td>{{ t.6 }}</td>
+			{% else %}
+			<td>{{ t.6 }} Waiting for signup, otherwise refunded in 24 hours</td>
+			{% endif %}
+      </tr>
+	{% endfor %}
+	<br>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+{% if not error == None %}
+	<div class="alert alert-danger">
+	<strong>Failed!</strong> <br><br>{{ error }}
+	</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'titlebar.html' %}
+<div class="container">
+	<br><br>
+  <form class="form-inline" method="post" action="/addmoney">
+      	Enter the Amount <br>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputAmount">Amount (in INR)</label>
+      <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <input type="text" name="amount" class="form-control" id="exampleInputAmount" placeholder="Amount">
+        <div class="input-group-addon">.00</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add To Wallet</button>
+  </form>
+</div>
+{% if not error == None %}
+	<div class="alert alert-danger">
+	<strong>Failed!</strong> <br><br>{{ error }}
+	</div>
+{% endif %}
+
+
+
+{% endblock %}

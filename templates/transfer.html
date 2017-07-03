@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+Login
+{% block content %}
+{% include 'titlebar.html' %}
+<div class="container">
+<form action="/transfer" method="post">
+  Enter the Amount:<br>
+  <input type="text" name="amount" value=""><br>
+  Email Id of recipient:<br>
+  <input type="text" name="email_id" value="">
+  <br><br>
+  <input type="submit" class="btn btn-success" value="Submit">
+</form> 
+</div>
+{% if not error == None %}
+	<div class="alert alert-danger">
+	<strong>Failed!</strong> <br><br>{{ error }}
+	</div>
+{% endif %}
+{% endblock %}

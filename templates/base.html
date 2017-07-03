@@ -1,0 +1,22 @@
+<head>
+  <title>Wallet App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<div class="alert alert-info">
+	<center><b>Welcome to Wallet App</b></center>
+	{% if user.is_authenticated %}
+	<div align="right"><a href="login" align="right">Logout</a>	</div>
+	{% else %}
+	<div align="right"><a href="signup" align="right">SignUp</a>	</div>
+	<br><div align="right"><a href="login" align="right">Login</a>	</div>
+	{% endif %}
+</div>
+{% block content%}
+{% endblock %}
+
+
